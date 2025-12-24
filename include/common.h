@@ -9,6 +9,7 @@
 #include <ctype.h>
 #include <signal.h>
 #include <fcntl.h>
+#include <dlfcn.h>
 #include <syslog.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
