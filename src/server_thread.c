@@ -31,6 +31,7 @@ void *server_thread(void *arg)
         perror("listen");
         exit(1);
     }
+
     while (is_run)
     {
         unsigned int len = sizeof(cliaddr);
@@ -70,12 +71,14 @@ void *client_connection(void *arg)
             // led on/off
             if (cmd == 'L' || cmd == 'l')
                 status->led_brightness = val;
+
             // segment
             else if (cmd == 'F' || cmd == 'f')
             {
                 status->fnd_value = val;
                 status->is_counting = 1;
             }
+
             // buzzer
             else if (cmd == 'B' || cmd == 'b')
                 status->buzzer_status = val;

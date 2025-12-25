@@ -19,26 +19,27 @@ void *led_thread_routine(void *arg)
     {
         pthread_mutex_lock(&status->lock);
 
+        // led 밝기 조절
         if (status->led_brightness > 0)
         {
             switch (status->led_brightness)
             {
             case 1:
-                target_pwm = BRIGHT_LOW;
+                target_pwm = BRIGHT_LOW; // 1단계
                 break;
             case 2:
-                target_pwm = BRIGHT_MED;
+                target_pwm = BRIGHT_MED; // 2단계
                 break;
             case 3:
-                target_pwm = BRIGHT_HIGH;
+                target_pwm = BRIGHT_HIGH; // 3단계
                 break;
             default:
-                target_pwm = BRIGHT_OFF;
+                target_pwm = BRIGHT_OFF; // 꺼짐
             }
         }
         else
         {
-            target_pwm = (status->light_level == HIGH) ? BRIGHT_OFF : BRIGHT_MED;
+            target_pwm = (status->light_level == HIGH) ? BRIGHT_OFF : BRIGHT_MED; // 꺼짐 or 중간
         }
         pthread_mutex_unlock(&status->lock);
 

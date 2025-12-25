@@ -1,8 +1,10 @@
 CC = gcc
 CFLAGS = -Wall -fPIC -I./include
+
 # 라이브러리 제작에 필요한 하드웨어 관련 라이브러리
 LIB_LIBS = -lwiringPi -lpthread
-# 메인 프로그램(데몬) 빌드에 필요한 라이브러리 (dlopen을 위해 -ldl 필수)
+
+# 메인 프로그램(데몬) 빌드에 필요한 라이브러리
 MAIN_LIBS = -lwiringPi -ldl -lpthread -rdynamic
 
 # 디렉토리 설정

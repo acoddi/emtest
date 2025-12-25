@@ -64,6 +64,5 @@ void *fnd_thread_routine(void *arg)
     // 종료 시 초기화
     for (int i = 0; i < 4; i++)
         digitalWrite(gpiopins[i], HIGH);
-    printf("FND thread terminated.\n");
     return NULL;
 }

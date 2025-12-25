@@ -25,8 +25,7 @@ int main(int argc, char **argv)
     handle = dlopen("./lib/libdevice_control.so", RTLD_LAZY);
     if (!handle)
     {
-        // syslog 대신 직접 출력해서 확인
-        printf("DEBUG: dlopen failed: %s\n", dlerror());
+        syslog(LOG_ERR, "DEBUG: dlopen failed: %s\n", dlerror());
         return -1;
     }
 
@@ -56,7 +55,6 @@ int main(int argc, char **argv)
         return -1;
     }
     pthread_mutex_init(&global_status.lock, NULL);
-
     global_status.led_brightness = 0;
     global_status.fnd_value = 0;
     global_status.is_counting = 0;

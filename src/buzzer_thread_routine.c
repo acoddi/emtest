@@ -1,7 +1,7 @@
 #include "common.h"
 #include "device_control.h"
 
-#define TOTAL 44
+#define TOTAL 46
 
 int notes[] = {
     392, 523, 659, 784, 698, 659, 523, 440,
@@ -76,6 +76,5 @@ void *buzzer_thread_routine(void *arg)
 
     // 종료 전 안전하게 부저 끄기
     softToneWrite(PIN_BUZZER, 0);
-    printf("Buzzer thread terminated.\n");
     return NULL;
 }
